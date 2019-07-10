@@ -16,7 +16,9 @@
     "express-rate-limit": "^5.0.0",
     "helmet": "^3.18.0",
     "mysql2": "^1.6.5",
-    "sequelize": "^5.9.4"
+    "sequelize": "^5.9.4",
+    "swagger-jsdoc": "^3.3.0",
+    "swagger-ui-express": "^4.0.7"
   },
   "devDependencies": {
     "nodemon": "^1.19.1"
