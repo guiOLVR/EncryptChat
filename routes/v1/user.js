@@ -4,16 +4,10 @@ const controller = require('../../controllers/v1/user-controller');
 
 router.get('/:id', controller.read);
 
-router.post('/', (req, res, next) => {
-    res.send('ok');
-});
+router.post('/', controller.create);
 
-router.put('/', (req, res, next) => {
-    res.send('ok');
-});
+router.put('/:id', controller.update);
 
-router.delete('/', (req, res, next) => {
-    res.send('ok');
-});
+router.delete('/:id', controller.delete);
 
 module.exports = router;
