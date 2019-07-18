@@ -51,7 +51,8 @@ module.exports = function (sequelize, DataTypes) {
         }
     }, {
             tableName: 'user',
-            timestamps: false
+            timestamps: true,
+            paranoid: true
         });
     User.associate = function (models) {
     }
