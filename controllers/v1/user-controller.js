@@ -8,7 +8,7 @@ exports.create = async (req, res, next) => {//in the future will need email vali
         hasPass = hash;
     });
 
-    await User.create({//save user informations into database
+    User.create({//save user informations into database
         id: 0,
         name: req.body.name,
         hash: hasPass,
@@ -25,8 +25,8 @@ exports.create = async (req, res, next) => {//in the future will need email vali
     })
 }
 
-exports.read = async (req, res, next) => {
-    await User.findOne({
+exports.read = (req, res, next) => {
+    User.findOne({
         attributes: ['id', 'name', 'nickname', 'email', 'phone', 'cityId'],
         where: {id : req.params.id}
     })
@@ -38,7 +38,7 @@ exports.read = async (req, res, next) => {
     })
 };
 
-exports.update = async (req, res, next) => {
+exports.update = (req, res, next) => {
     let dynamicObj = {};
     let message = '';
 
@@ -63,7 +63,7 @@ exports.update = async (req, res, next) => {
         message = 'Your city has been updated!'
     }
 
-    await User.update(dynamicObj, {
+    User.update(dynamicObj, {
         where: {id: req.params.id}
     })
     .then(result => {
@@ -74,7 +74,7 @@ exports.update = async (req, res, next) => {
     })
 }
 
-exports.delete = async (req, res, next) => {
+exports.delete = (req, res, next) => {
     User.destroy({
         where: {id: req.params.id}
     })
